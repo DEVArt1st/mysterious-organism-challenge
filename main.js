@@ -57,6 +57,29 @@ const pAequorFactory = (specimenNum, dna) => {
         return false;
       }
     },
+    complementStrand(){
+      let compStrand = [];
+      for(const base of dna){
+        switch(base){
+          case "A":
+          compStrand.push("T");
+          break;
+          case "T":
+          compStrand.push("A");
+          break;
+          case "C":
+          compStrand.push("G");
+          break;
+          case "G":
+          compStrand.push("C");
+          break;
+          default:
+          return "Unidentified base";
+          break;
+        }
+      }
+      return compStrand;
+    }
   };
 };
 
@@ -98,8 +121,10 @@ const pAequorCurrent = pAequorFactory(1, [
   "C",
   "C",
 ]);
+
+console.log(pAequorCurrent.complementStrand());
 // const pAequorOther = pAequorFactory(2, mockUpStrand());
 // console.log(pAequorCurrent.dnaBases);
 // pAequorCurrent.compareDNA(pAequorOther);
 // console.log(pAequorCurrent.dnaBases);
-console.log(createPAequorInstances());
+// console.log(createPAequorInstances());
